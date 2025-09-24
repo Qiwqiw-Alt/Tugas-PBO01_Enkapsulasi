@@ -1,6 +1,7 @@
 package com.staff;
 import com.hewan.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Penjaga {
     String nama;
@@ -27,11 +28,24 @@ public class Penjaga {
     }
 
     public void tampilkanInfo() {
-        System.out.println("Nama: " + nama);
-        System.out.println("Staff ID: " + staffId);
-        System.out.println("Tahun Pengalaman: " + tahunPengalaman);
-        System.out.println("Shift: " + shift);
-        System.out.println("Lokasi Penjagaan: " + lokasiPenjagaan);
+        System.out.println("=== Info Pengunjung ===");
+        System.out.println("Nama             : " + nama);
+        System.out.println("Staff ID         : " + staffId);
+        System.out.println("Tahun Pengalaman : " + tahunPengalaman);
+        System.out.println("Shift            : " + shift);
+        System.out.print("Lokasi Penjagaan :");
+        if (lokasiPenjagaan.isEmpty()) {
+            System.out.println("  (Belum ada lokasi penjagaan)");
+        } else {
+            System.out.print("  ");
+            for (int i = 0; i < lokasiPenjagaan.size(); i++) {
+                System.out.print(lokasiPenjagaan.get(i));
+                if (i < lokasiPenjagaan.size() - 1) {
+                    System.out.print(", ");
+                }
+            }
+            System.out.println();
+        }
     }
 
     public void hapusLokasi(String lokasi) {
