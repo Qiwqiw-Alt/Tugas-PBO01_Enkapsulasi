@@ -28,7 +28,7 @@ public class Penjaga {
     }
 
     public void tampilkanInfo() {
-        System.out.println("=== Info Pengunjung ===");
+        System.out.println("=== Info Penjaga ===");
         System.out.println("Nama             : " + nama);
         System.out.println("Staff ID         : " + staffId);
         System.out.println("Tahun Pengalaman : " + tahunPengalaman);
