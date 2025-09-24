@@ -1,17 +1,55 @@
 package com.staff;
 import com.hewan.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Main {
-    public static void main(String[] args) {
-        Penjaga penjaga1 = new Penjaga("Zidan", "01", 2, "Pagi");
-        Pengunjung pengunjung1 = new Pengunjung("Qiqi", 19, "L0124069", 100000, "Gajah");
-        Gajah gajah1 = new Gajah(4, 20, "Gajah", 'L', "Sumatra" );
-        Harimau harimau1 = new Harimau(4, 5, "Harimau", 'L', "Sumatra");
-        Merak merak1 = new Merak(2, 5, "Merak", 'P', "Putih Bali");
+public class Penjaga {
+    public String nama;
+    String staffId;
+    protected int tahunPengalaman;
+    protected String shift;
+    private List<String> lokasiPenjagaan;  // lokasi yang dijaga misal ada kandang
 
-        penjaga1.tampilkanInfo();
-        gajah1.umur = 21;
-        System.out.println(gajah1.umur);
+    public Penjaga(String nama, String staffId, int tahunPengalaman, String shift) {
+        this.nama = nama;
+        this.staffId = staffId;
+        this.tahunPengalaman = tahunPengalaman;
+        this.shift = shift;
+        this.lokasiPenjagaan = new ArrayList<>();
+    }
 
+    public void beriMakan(Hewan hewan) {
+        System.out.println(nama + " memberi makan " + hewan.getNama());
+    }
+
+    public void tambahLokasi(String lokasi) {
+        lokasiPenjagaan.add(lokasi);
+        System.out.println(nama + " menambahkan lokasi penjagaan: " + lokasi);
+    }
+
+    public void tampilkanInfo() {
+        System.out.println("=== Info Pengunjung ===");
+        System.out.println("Nama             : " + nama);
+        System.out.println("Staff ID         : " + staffId);
+        System.out.println("Tahun Pengalaman : " + tahunPengalaman);
+        System.out.println("Shift            : " + shift);
+        System.out.print("Lokasi Penjagaan :");
+        if (lokasiPenjagaan.isEmpty()) {
+            System.out.println("  (Belum ada lokasi penjagaan)");
+        } else {
+            System.out.print("  ");
+            for (int i = 0; i < lokasiPenjagaan.size(); i++) {
+                System.out.print(lokasiPenjagaan.get(i));
+                if (i < lokasiPenjagaan.size() - 1) {
+                    System.out.print(", ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public void hapusLokasi(String lokasi) {
+        lokasiPenjagaan.remove(lokasi);
+        System.out.println(nama + " menghapus lokasi penjagaan: " + lokasi);
     }
 }
