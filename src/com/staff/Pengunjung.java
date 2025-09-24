@@ -1,5 +1,5 @@
 package com.staff;
-import  com.hewan.Hewan;
+import  com.hewan.*;
 
 public class Pengunjung {
     public String nama;
@@ -17,11 +17,13 @@ public class Pengunjung {
     }
 
     public void tampilkanInfo() {
-        System.out.println("Nama: " + nama);
-        System.out.println("Umur: " + umur);
-        System.out.println("Tiket ID: " + tiketId);
-        System.out.println("Uang: " + uang);
-        System.out.println("Hewan Kesukaan: " + hewanKesukaan);
+        System.out.println("=== Info Pengunjung ===");
+        System.out.println("Nama           : " + nama);
+        System.out.println("Umur           : " + umur);
+        System.out.println("Tiket ID       : " + tiketId);
+        System.out.println("Uang           : Rp" + String.format("%.2f", uang));
+        System.out.println("Hewan Kesukaan : " + hewanKesukaan);
+        System.out.println("=======================");
     }
 
     public void lihatHewanKesukaan() {
